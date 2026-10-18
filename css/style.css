@@ -288,22 +288,55 @@ header {
     gap: 10px;
 }
 
-.image-placeholder {
-    background-color: #E0E0E0;
+/* --- SLIDESHOW PROFIL (MENGGANTIKAN IMAGE PLACEHOLDER) --- */
+.slideshow-container {
+    position: relative;
+    width: 100%;
     height: 400px;
     border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    color: #999;
-    text-align: center;
-    padding: 20px;
+    overflow: hidden; /* Memastikan sudut gambar tetap melengkung */
+    box-shadow: var(--shadow-md);
 }
 
-.image-placeholder i {
-    font-size: 50px;
-    margin-bottom: 15px;
+.slideshow-container img.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Agar gambar tidak gepeng, otomatis menyesuaikan bingkai */
+    opacity: 0; /* Semua gambar disembunyikan awalnya */
+    animation: fadeSlide 16s infinite; /* 16 detik total siklus untuk 4 gambar (4 detik per gambar) */
+}
+
+/* Mengatur penundaan (delay) masing-masing gambar agar tampil bergantian */
+.slideshow-container img.slide:nth-child(1) {
+    animation-delay: 0s;
+}
+.slideshow-container img.slide:nth-child(2) {
+    animation-delay: 4s;
+}
+.slideshow-container img.slide:nth-child(3) {
+    animation-delay: 8s;
+}
+.slideshow-container img.slide:nth-child(4) {
+    animation-delay: 12s;
+}
+
+/* Animasi Keyframes untuk efek transisi Fade In/Out */
+@keyframes fadeSlide {
+    0% { opacity: 0; transform: scale(1.05); } /* Mulai masuk, sedikit membesar (efek zoom lembut) */
+    10% { opacity: 1; transform: scale(1); }   /* Tampil penuh */
+    25% { opacity: 1; transform: scale(1); }   /* Bertahan tampil */
+    35% { opacity: 0; transform: scale(1.05); } /* Mulai memudar dan ganti ke gambar berikutnya */
+    100% { opacity: 0; }
+}
+
+/* Penyesuaian tinggi slideshow untuk HP */
+@media (max-width: 768px) {
+    .slideshow-container {
+        height: 250px;
+    }
 }
 
 /* --- PROGRAM UNGGULAN (CARDS) --- */
