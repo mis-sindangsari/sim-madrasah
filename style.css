@@ -128,10 +128,14 @@ header {
 }
 
 /* --- HERO SECTION (GAMBAR OVERLAY + DIRECT LINK DRIVE) --- */
+/* --- HERO SECTION --- */
 .hero {
     height: 100vh;
     min-height: 600px;
-    background-image: url('https://drive.google.com/uc?export=view&id=13pclAAugskRS9HZaycY_kWgreCSWY4ro');
+    
+    /* GANTI URL-NYA MENJADI SEPERTI INI: */
+    background-image: url('https://lh3.googleusercontent.com/d/13pclAAugskRS9HZaycY_kWgreCSWY4ro');
+    
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
